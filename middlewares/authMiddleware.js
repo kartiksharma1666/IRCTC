@@ -11,8 +11,8 @@ function authMiddleware(req, res, next) {
   try {
     const actualToken = token.split(' ')[1]; 
     
-    const verified = jwt.verify(actualToken, process.env.JWT_SECRET);
-    req.user = verified;  // Attach the decoded token payload to req.user
+    req.user = jwt.verify(actualToken, process.env.JWT_SECRET);
+    
     next();  
   } catch (error) {
     res.status(400).send('Invalid Token');  // Invalid or expired token

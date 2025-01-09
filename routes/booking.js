@@ -1,6 +1,6 @@
 
 const express = require('express');
-const connection = require('../models/userModel'); // MySQL connection
+const connection = require('../config/dbConnection'); // MySQL connection
 const authMiddleware = require('../middlewares/authMiddleware'); // JWT Auth middleware
 const router = express.Router();
 
@@ -8,6 +8,7 @@ const router = express.Router();
 router.post('/book-seat', authMiddleware, (req, res) => {
     const { trainId } = req.body;
     const userId = req.user.id;  
+    
   
     // Start a transaction to prevent race conditions
     connection.beginTransaction((err) => {

@@ -1,6 +1,6 @@
 
 const express = require('express');
-const connection = require('../models/userModel'); 
+const connection = require('../config/dbConnection'); 
 const router = express.Router();
 
 // Get Available Trains (Public route)

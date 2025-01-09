@@ -3,11 +3,11 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const registerRoute = require('./routes/register'); // Import the register route
 const loginRoute = require('./routes/login'); // Import the login route
-const adminRoutes = require('./routes/admin'); // Admin routes
+const adminRoutes = require('./routes/addTrainAdmin'); // Admin routes
 const trainRoutes = require('./routes/trainRoutes'); // Train routes (seat availability)
 const bookingRoutes = require('./routes/booking'); // Booking routes
 const bookingDetailsRoute = require('./routes/bookingDetails');
-
+const availableSeatsRoute = require('./routes/availableSeats');
 dotenv.config();  
 
 
@@ -22,6 +22,7 @@ app.use('/api/admin', adminRoutes);  // Admin routes (protected by API key)
 app.use('/api', trainRoutes);  
 app.use('/api', bookingRoutes);  // Booking routes (protected by JWT)
 app.use('/api', bookingDetailsRoute);
+app.use('/api', availableSeatsRoute);
 
 
 app.get('/', (req, res) => {

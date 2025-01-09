@@ -1,6 +1,6 @@
 
 const express = require('express');
-const connection = require('../models/userModel'); 
+const connection = require('../config/dbConnection'); 
 const apiKeyMiddleware = require('../middlewares/apiKeyMiddleware'); // API Key middleware
 const router = express.Router();
 
